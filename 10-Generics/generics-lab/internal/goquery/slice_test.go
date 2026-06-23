@@ -2,7 +2,7 @@ package goquery
 
 import "testing"
 
-func TestFilter(t *testing.T) {
+func TestFilterOwn(t *testing.T) {
 
 	numbers := []int{1, 2, 3, 4, 5, 6}
 	got := Filter(numbers, func(n int) bool { return n%2 == 0 })
@@ -19,14 +19,14 @@ func TestFilter(t *testing.T) {
 	}
 }
 
-type User struct {
+type UserOwn struct {
 	Id   int
 	Name string
 }
 
-func TestMapToNames(t *testing.T) {
-	users := []User{{Id: 1, Name: "Alice"}, {Id: 2, Name: "Bob"}, {Id: 3, Name: "Charlie"}}
-	got := Map(users, func(u User) string { return u.Name })
+func TestMapToNamesOwn(t *testing.T) {
+	users := []UserOwn{{Id: 1, Name: "Alice"}, {Id: 2, Name: "Bob"}, {Id: 3, Name: "Charlie"}}
+	got := Map(users, func(u UserOwn) string { return u.Name })
 	want := []string{"Alice", "Bob", "Charlie"}
 
 	if len(got) != len(want) {
